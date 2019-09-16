@@ -11,9 +11,15 @@ func TestHello(t *testing.T) {
 		}
 	}
 
-	t.Run("will return simple hello world", func(t *testing.T) {
+	t.Run("will return simple hello + name", func(t *testing.T) {
 		got := Hello("Ardi")
 		want := "Hello, Ardi"
+		assertCorrectMessage(t, got, want)
+	})
+
+	t.Run("will return default value world if name is empty", func(t *testing.T) {
+		got := Hello("")
+		want := "Hello, World"
 		assertCorrectMessage(t, got, want)
 	})
 
