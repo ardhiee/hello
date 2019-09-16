@@ -12,8 +12,8 @@ func TestHello(t *testing.T) {
 	}
 
 	t.Run("will return simple hello world", func(t *testing.T) {
-		got := Hello()
-		want := "Hello, World"
+		got := Hello("Ardi")
+		want := "Hello, Ardi"
 		assertCorrectMessage(t, got, want)
 	})
 
