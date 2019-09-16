@@ -3,6 +3,8 @@ package hello
 const englishHelloPrefix = "Hello, "
 const spanishHelloPrefix = "Hola, "
 const frenchHelloPrefix = "Bonjour, "
+const spanish = "Spanish"
+const french = "French"
 
 // Hello function just give simple output
 func Hello(name, language string) string {
@@ -11,13 +13,17 @@ func Hello(name, language string) string {
 		name = "World"
 	}
 
-	if language == "Spanish" {
-		return spanishHelloPrefix + name
-	}
+	return gettingPrefix(language) + name
+}
 
-	if language == "French" {
-		return frenchHelloPrefix + name
+func gettingPrefix(language string) (prefix string) {
+	switch language {
+	case spanish:
+		prefix = spanishHelloPrefix
+	case french:
+		prefix = frenchHelloPrefix
+	default:
+		prefix = englishHelloPrefix
 	}
-
-	return englishHelloPrefix + name
+	return prefix
 }
